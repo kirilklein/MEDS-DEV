@@ -17,21 +17,21 @@ windows:
   input:
     start: null
     end: trigger - 30d
-    start_inclusive: True
-    end_inclusive: True
+    start_inclusive: true
+    end_inclusive: true
     index_timestamp: end
-    
+
   gap:
     start: null
     end: trigger
-    start_inclusive: True
-    end_inclusive: True
+    start_inclusive: true
+    end_inclusive: true
     has:
       female: female
   
   target:
-    start: 
+    start: trigger - 1d
     end: start -> breast_cancer
-    start_inclusive: true
-    end_inclusive: True
+    start_inclusive: false
+    end_inclusive: true
     label: breast_cancer
