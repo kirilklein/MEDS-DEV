@@ -1,0 +1,32 @@
+description: >-
+  This file specifies the base configuration for the prediction of cancer. 
+  The trigger is observation due to suspected cancer (DZ031 in the Danish system).
+  Since there is a delay in the coding and other cancer related codes can leak, 
+  we use input data from more than one month before the trigger.
+  
+  The target is cancer diagnosis.
+
+trigger: suspected_cancer
+
+windows:
+  input:
+    start: null
+    end: trigger - 30d
+    start_inclusive: true
+    end_inclusive: true
+    index_timestamp: end
+
+  gap:
+    start: null
+    end: trigger
+    start_inclusive: true
+    end_inclusive: true
+    # has:
+    #   female: (1,None)
+  
+  target:
+    start: trigger - 1d
+    end: start -> cancer
+    start_inclusive: false
+    end_inclusive: true
+    label: cancer

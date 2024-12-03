@@ -1,0 +1,21 @@
+predicates:
+  icu_admission:
+    code: { regex: "^ADMISSION//.*" }
+  icu_discharge:
+    code: { regex: "^DISCHARGE//.*" }
+
+  birth:
+    code: DOB
+  death:
+    code: DOD
+
+  breast_cancer: 
+    code: { regex: "^DC50.*" }    
+  cancer: 
+    code:  { regex: "^DC.*" }    
+  female: 
+    code: GENDER//FEMALE
+
+  suspected_cancer:
+    code: DZ031
+    
