@@ -18,4 +18,14 @@ predicates:
 
   suspected_cancer:
     code: DZ031
+  
+
+  opioids:
+    code: { regex: "^MN02A.*" } 
+  analgetika:
+    code: { regex: "^MN02B.*" }
+  muscle_pain_meds:
+    code:  { regex: "^MM02A.*" }
+  pain_meds: 
+    expr: or(opioids, analgetika, muscle_pain_meds)
     

@@ -6,27 +6,35 @@ description: >-
   
   The target is cancer diagnosis.
 
-trigger: suspected_cancer
+
+trigger: pain_meds
 
 windows:
   input:
     start: null
-    end: trigger - 30d
+    end: trigger + 1825d
     start_inclusive: true
     end_inclusive: true
     index_timestamp: end
-
-  gap:
+  has_cancer:
     start: null
     end: trigger
-    start_inclusive: true
-    end_inclusive: true
-    # has:
-    #   female: (1,None)
+    start_inclusive: True
+    end_inclusive: True
+    has:
+      cancer: (1, None)
+
+  # gap:
+  #   start: null
+  #   end: trigger
+  #   start_inclusive: true
+  #   end_inclusive: true
+  #   # has:
+  #   #   female: (1,None)
   
   target:
-    start: trigger - 1d
-    end: start -> cancer
+    start: trigger
+    end: start + 1825d
     start_inclusive: false
     end_inclusive: true
     label: cancer
