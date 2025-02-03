@@ -7,7 +7,7 @@ description: >-
   The target is cancer diagnosis.
 
 
-trigger: pain_meds
+trigger: _ANY_EVENT
 
 windows:
   input:
@@ -16,21 +16,16 @@ windows:
     start_inclusive: true
     end_inclusive: true
     index_timestamp: end
-  has_cancer:
+    has: 
+      _ANY_EVENT: (5, None)
+
+  gap:
     start: null
     end: trigger
-    start_inclusive: True
-    end_inclusive: True
+    start_inclusive: true
+    end_inclusive: true
     has:
       cancer: (1, None)
-
-  # gap:
-  #   start: null
-  #   end: trigger
-  #   start_inclusive: true
-  #   end_inclusive: true
-  #   # has:
-  #   #   female: (1,None)
   
   target:
     start: trigger
